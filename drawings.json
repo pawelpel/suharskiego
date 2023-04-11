@@ -1,30 +1,37 @@
 [
     {
-        "image_1": "jokes/1/1-nutelli.PNG",
-        "image_1_alt": "alt text",
-        "image_2": "jokes/1/2-nutelli.PNG",
-        "image_2_alt": "Nutelli",
-        "instagram": "url_to_instagram"
-    },
-    {
-        "image_1": "jokes/2/1-spiewa.PNG",
-        "image_1_alt": "alt text",
-        "image_2": "jokes/2/2-spiewa.PNG",
+        "image_1": "jokes/spiewa/1.PNG",
+        "image_1_alt": "Co robi nieroztropna żona Adama podczas jej debiutu na scenie?",
+        "image_2": "jokes/spiewa/2.PNG",
         "image_2_alt": "śpiewa",
-        "instagram": "url_to_instagram"
+        "instagram": "https://www.instagram.com/p/CqyC7v0sf6S/"
     },
     {
-        "image_1": "jokes/3/1-magazynowy.PNG",
-        "image_1_alt": "alt text",
-        "image_2": "jokes/3/2-magazynowy.PNG",
-        "image_2_alt": "magazynowy",
-        "instagram": "url_to_instagram"
+        "image_1": "jokes/zarazenie_sie/1.jpg",
+        "image_1_alt": "Co odpowiada pan młody na pytanie co go najbardziej przeraża podczas pandemii?",
+        "image_2": "jokes/zarazenie_sie/2.jpg",
+        "image_2_alt": "Zarażenie się",
+        "instagram": "https://www.instagram.com/p/CeJ1wi6sZ9C/"
     },
     {
-        "image_1": "jokes/3/1-magazynowy.PNG",
-        "image_1_alt": "alt text",
-        "image_2": null,
-        "image_2_alt": null,
-        "instagram": "url_to_instagram"
+        "image_1": "jokes/bo_chleb_graham/1.PNG",
+        "image_1_alt": "Dlaczego z piekarni słychać głośną muzykę w czasie ciszy nocnej?",
+        "image_2": "jokes/bo_chleb_graham/2.PNG",
+        "image_2_alt": "Bo chleb graham",
+        "instagram": "https://www.instagram.com/p/Cd80HnqMTI4/"
+    },
+    {
+        "image_1": "jokes/tradziki/1.jpg",
+        "image_1_alt": "Co robią nastolatkowie w lesie gdy mają problemy z cerą?",
+        "image_2": "jokes/tradziki/2.jpg",
+        "image_2_alt": "Trądziki",
+        "instagram": "https://www.instagram.com/p/Cd5yTdSMJCU/"
+    },
+    {
+        "image_1": "jokes/dyson/1.PNG",
+        "image_1_alt": "Co mówi ojciec do syna gdy chce zamordować go odkurzaczem?",
+        "image_2": "jokes/dyson/2.PNG",
+        "image_2_alt": "Dyson!",
+        "instagram": "https://www.instagram.com/p/Cd3Dmp3sQgx/"
     }
 ]
