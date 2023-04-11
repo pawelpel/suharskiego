@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1em;
+    width: calc(100% - 2em);
+    box-sizing: border-box;
+}
+
+.logo {
+    width: calc(150 / (150 + 1385) * 100%);
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.second-logo {
+    width: calc(1385 / (150 + 1385) * 100%);
+    height: auto;
+    object-fit: cover;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.drawing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    display: none;
+}
+
+.arrow.left {
+    left: 10px;
+    font-weight: bold;
+}
+
+.arrow.right {
+    right: 10px;
+    font-weight: bold;
+}
+
+.arrow.hidden {
+    display: none !important;
+}
+
+.dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333333;
+}
+
+@media screen and (min-width: 768px) {
+    .arrow {
+        display: inline;
+    }
+
+    .drawing-container {
+        max-width: 50%;
+    }
+
+    .logo-container {
+        max-width: 50%;
+    }
+}
