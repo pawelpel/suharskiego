@@ -116,14 +116,14 @@ body {
 .dot {
     width: 8px;
     height: 8px;
-    background-color: #cccccc;
+    background-color: #333333;
     border-radius: 50%;
     margin: 0 2px;
     cursor: pointer;
 }
 
 .dot.active {
-    background-color: #333333;
+    background-color: #cccccc;
 }
 
 @media screen and (min-width: 768px) {
