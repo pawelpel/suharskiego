@@ -1,27 +1,27 @@
 [
     {
-        "image_1": "/jokes/1/1-nutelli.PNG",
+        "image_1": "jokes/1/1-nutelli.PNG",
         "image_1_alt": "alt text",
-        "image_2": "/jokes/1/2-nutelli.PNG",
+        "image_2": "jokes/1/2-nutelli.PNG",
         "image_2_alt": "Nutelli",
         "instagram": "url_to_instagram"
     },
     {
-        "image_1": "/jokes/2/1-spiewa.PNG",
+        "image_1": "jokes/2/1-spiewa.PNG",
         "image_1_alt": "alt text",
-        "image_2": "/jokes/2/2-spiewa.PNG",
+        "image_2": "jokes/2/2-spiewa.PNG",
         "image_2_alt": "śpiewa",
         "instagram": "url_to_instagram"
     },
     {
-        "image_1": "/jokes/3/1-magazynowy.PNG",
+        "image_1": "jokes/3/1-magazynowy.PNG",
         "image_1_alt": "alt text",
-        "image_2": "/jokes/3/2-magazynowy.PNG",
+        "image_2": "jokes/3/2-magazynowy.PNG",
         "image_2_alt": "magazynowy",
         "instagram": "url_to_instagram"
     },
     {
-        "image_1": "/jokes/3/1-magazynowy.PNG",
+        "image_1": "jokes/3/1-magazynowy.PNG",
         "image_1_alt": "alt text",
         "image_2": null,
         "image_2_alt": null,
