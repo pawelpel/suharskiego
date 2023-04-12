@@ -89,7 +89,7 @@ function createDrawingContainer(drawing) {
                 <img src="${drawing.image_1}" alt="${drawing.image_1_alt}" class="active">
                 ${drawing.image_2 ? `<img src="${drawing.image_2}" alt="${drawing.image_2_alt}">` : ''}
                 <a href="${drawing.instagram}" target="_blank" class="instagram-link">
-                    <i class="fas fa-comment"></i>
+                    <i class="fab fa-instagram"></i>
                 </a>
             </div>
             ${drawing.image_2 ? '<span class="arrow left hidden">&lsaquo;</span>' : ''}
