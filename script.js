@@ -86,8 +86,8 @@ function createDrawingContainer(drawing) {
     container.innerHTML = `
         <div class="carousel">
             <div class="image-wrapper">
-                <img src="${drawing.image_1}" alt="${drawing.image_1_alt}" class="active">
-                ${drawing.image_2 ? `<img src="${drawing.image_2}" alt="${drawing.image_2_alt}">` : ''}
+                <img data-src="${drawing.image_1}" alt="${drawing.image_1_alt}" class="active lazy">
+                ${drawing.image_2 ? `<img data-src="${drawing.image_2}" alt="${drawing.image_2_alt}" class="lazy">` : ''}
                 <a href="${drawing.instagram}" target="_blank" class="instagram-link">
                     <i class="fab fa-instagram"></i>
                 </a>
@@ -106,6 +106,33 @@ function createDrawingContainer(drawing) {
     return container;
 }
 
+
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('.lazy');
+
+    const options = {
+        rootMargin: '0px 0px 200px 0px',
+        threshold: 0
+    };
+
+    const loadImage = (image) => {
+        image.src = image.dataset.src;
+        image.classList.remove('lazy');
+    };
+
+    const onIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadImage(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(onIntersection, options);
+    lazyImages.forEach(image => observer.observe(image));
+}
+
 async function init() {
     const drawingsContainer = document.getElementById('drawings-container');
     const drawings = await fetchDrawings();
@@ -115,8 +142,8 @@ async function init() {
         drawingsContainer.appendChild(drawingContainer);
     }
 
-    // Call the function to initialize carousels after the drawings are added to the page
     initCarousels();
+    initLazyLoading();
     changeBackgroundColor();
 }
 
