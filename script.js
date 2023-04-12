@@ -108,7 +108,8 @@ function createDrawingContainer(drawing) {
 
 
 function initLazyLoading() {
-    const lazyImages = document.querySelectorAll('.lazy');
+    const lazyImages = Array.from(document.querySelectorAll('.lazy'));
+    let preloadedImages = 0;
 
     const options = {
         rootMargin: '0px 0px 200px 0px',
@@ -125,12 +126,24 @@ function initLazyLoading() {
             if (entry.isIntersecting) {
                 loadImage(entry.target);
                 observer.unobserve(entry.target);
+                lazyImages.splice(lazyImages.indexOf(entry.target), 1);
             }
         });
     };
 
     const observer = new IntersectionObserver(onIntersection, options);
     lazyImages.forEach(image => observer.observe(image));
+
+    // Preload images that are not in the viewport
+    function preloadImages() {
+        if (lazyImages.length > 0) {
+            loadImage(lazyImages[preloadedImages]);
+            lazyImages.splice(preloadedImages, 1);
+            setTimeout(preloadImages, 1000); // load the next image after 1 second
+        }
+    }
+
+    setTimeout(preloadImages, 3000); // start preloading images after 3 seconds
 }
 
 async function init() {
