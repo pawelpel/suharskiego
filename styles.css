@@ -69,10 +69,36 @@ body {
     object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    z-index: 1;
 }
 
 .carousel img.active {
     opacity: 1;
+}
+
+.instagram-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.3s;
+  opacity: 0.7; /* Add transparency */
+  z-index: 10; /* Add z-index to keep the link above the images */
+}
+
+.instagram-link:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
 }
 
 .arrow {

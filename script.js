@@ -85,8 +85,13 @@ function createDrawingContainer(drawing) {
 
     container.innerHTML = `
         <div class="carousel">
-            <img src="${drawing.image_1}" alt="${drawing.image_1_alt}" class="active">
-            ${drawing.image_2 ? `<img src="${drawing.image_2}" alt="${drawing.image_2_alt}">` : ''}
+            <div class="image-wrapper">
+                <img src="${drawing.image_1}" alt="${drawing.image_1_alt}" class="active">
+                ${drawing.image_2 ? `<img src="${drawing.image_2}" alt="${drawing.image_2_alt}">` : ''}
+                <a href="${drawing.instagram}" target="_blank" class="instagram-link">
+                    <i class="fas fa-comment"></i>
+                </a>
+            </div>
             ${drawing.image_2 ? '<span class="arrow left hidden">&lsaquo;</span>' : ''}
             ${drawing.image_2 ? '<span class="arrow right">&rsaquo;</span>' : ''}
             ${drawing.image_2 ? `
