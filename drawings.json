@@ -1,240 +1,274 @@
 [
     {
         "image_1": "jokes/nutelli/1.jpg",
-        "image_1_alt": "Czego brakuje orkiestrze obżarciuchów do rozpoczęcia koncertu?",
+        "image_1_alt": "Czego brakuje orkiestrze ob\u017carciuch\u00f3w do rozpocz\u0119cia koncertu?",
         "image_2": "jokes/nutelli/2.jpg",
         "image_2_alt": "nutelli",
-        "instagram": "https://www.instagram.com/p/Cq0gsExMUge/"
+        "instagram": "https://www.instagram.com/p/Cq0gsExMUge/",
+        "id": "Cq0gsExMUge"
     },
     {
         "image_1": "jokes/spiewa/1.jpg",
-        "image_1_alt": "Co robi nieroztropna żona Adama podczas jej debiutu na scenie?",
+        "image_1_alt": "Co robi nieroztropna \u017cona Adama podczas jej debiutu na scenie?",
         "image_2": "jokes/spiewa/2.jpg",
-        "image_2_alt": "śpiewa",
-        "instagram": "https://www.instagram.com/p/CqyC7v0sf6S/"
+        "image_2_alt": "\u015bpiewa",
+        "instagram": "https://www.instagram.com/p/CqyC7v0sf6S/",
+        "id": "CqyC7v0sf6S"
     },
     {
         "image_1": "jokes/seniorka/1.jpg",
-        "image_1_alt": "Co może poprawić samopoczucie zmęczonemu po nocnej zmianie pracownikowi oceanarium, który niedługo wybiera się na emeryturę?",
+        "image_1_alt": "Co mo\u017ce poprawi\u0107 samopoczucie zm\u0119czonemu po nocnej zmianie pracownikowi oceanarium, kt\u00f3ry nied\u0142ugo wybiera si\u0119 na emerytur\u0119?",
         "image_2": "jokes/seniorka/2.jpg",
         "image_2_alt": "seniorka",
-        "instagram": "https://www.instagram.com/p/CqiCWsPMrmS/"
+        "instagram": "https://www.instagram.com/p/CqiCWsPMrmS/",
+        "id": "CqiCWsPMrmS"
     },
     {
         "image_1": "jokes/magazynowy/1.jpg",
-        "image_1_alt": "Jaką ksywę dostał nowo przyjęty pracownik hali, który ma wzdęcia?",
+        "image_1_alt": "Jak\u0105 ksyw\u0119 dosta\u0142 nowo przyj\u0119ty pracownik hali, kt\u00f3ry ma wzd\u0119cia?",
         "image_2": "jokes/magazynowy/2.jpg",
         "image_2_alt": "magazynowy",
-        "instagram": "https://www.instagram.com/p/Cpz9E10s9Et/"
+        "instagram": "https://www.instagram.com/p/Cpz9E10s9Et/",
+        "id": "Cpz9E10s9Et"
     },
     {
         "image_1": "jokes/lotniskowiec/1.jpg",
-        "image_1_alt": "Czego nie może zabraknąć na okręcie bojowym na którym stacjonują zwierzęta?",
+        "image_1_alt": "Czego nie mo\u017ce zabrakn\u0105\u0107 na okr\u0119cie bojowym na kt\u00f3rym stacjonuj\u0105 zwierz\u0119ta?",
         "image_2": "jokes/lotniskowiec/2.jpg",
         "image_2_alt": "lotniskowiec",
-        "instagram": "https://www.instagram.com/p/CoAjCy1sVAV/"
+        "instagram": "https://www.instagram.com/p/CoAjCy1sVAV/",
+        "id": "CoAjCy1sVAV"
     },
     {
         "image_1": "jokes/z_koszalina/1.jpg",
-        "image_1_alt": "Skąd pochodzi długi wyrzucony do śmietnika sznurek?",
+        "image_1_alt": "Sk\u0105d pochodzi d\u0142ugi wyrzucony do \u015bmietnika sznurek?",
         "image_2": "jokes/z_koszalina/2.jpg",
         "image_2_alt": "Z Koszalina",
-        "instagram": "https://www.instagram.com/p/CnujkrFMu6T/"
+        "instagram": "https://www.instagram.com/p/CnujkrFMu6T/",
+        "id": "CnujkrFMu6T"
     },
     {
         "image_1": "jokes/rude/1.jpg",
-        "image_1_alt": "Rude - dla Ciebie spoko koleżanki, a dla Anglika nieuprzejme.",
+        "image_1_alt": "Rude - dla Ciebie spoko kole\u017canki, a dla Anglika nieuprzejme.",
         "image_2": null,
         "image_2_alt": null,
-        "instagram": "https://www.instagram.com/p/CnhruOasdCk/"
+        "instagram": "https://www.instagram.com/p/CnhruOasdCk/",
+        "id": "CnhruOasdCk"
     },
     {
         "image_1": "jokes/passata/1.jpg",
-        "image_1_alt": "Jakiego samochodu Polak użyje do przewozu przecieru pomidorowego?",
+        "image_1_alt": "Jakiego samochodu Polak u\u017cyje do przewozu przecieru pomidorowego?",
         "image_2": "jokes/passata/2.jpg",
         "image_2_alt": "passata",
-        "instagram": "https://www.instagram.com/p/CncjVRgMNYJ/"
+        "instagram": "https://www.instagram.com/p/CncjVRgMNYJ/",
+        "id": "CncjVRgMNYJ"
     },
     {
         "image_1": "jokes/pity/1.jpg",
         "image_1_alt": "Pity - ty sobie je rozliczysz, a Anglikowi szkoda.",
         "image_2": null,
         "image_2_alt": null,
-        "instagram": "https://www.instagram.com/p/CnaJ3fWMqcZ/"
+        "instagram": "https://www.instagram.com/p/CnaJ3fWMqcZ/",
+        "id": "CnaJ3fWMqcZ"
     },
     {
         "image_1": "jokes/tonery/1.jpg",
-        "image_1_alt": "Co mówi drukarka lekarz diagnozując ból pleców pacjenta?",
+        "image_1_alt": "Co m\u00f3wi drukarka lekarz diagnozuj\u0105c b\u00f3l plec\u00f3w pacjenta?",
         "image_2": "jokes/tonery/2.jpg",
         "image_2_alt": "tonery",
-        "instagram": "https://www.instagram.com/p/CmwqGjQslz3/"
+        "instagram": "https://www.instagram.com/p/CmwqGjQslz3/",
+        "id": "CmwqGjQslz3"
     },
     {
         "image_1": "jokes/swat/1.jpg",
-        "image_1_alt": "Jak nazywa się specjalna amerykańska jednostka policji z departamentu matrymonialnego?",
+        "image_1_alt": "Jak nazywa si\u0119 specjalna ameryka\u0144ska jednostka policji z departamentu matrymonialnego?",
         "image_2": "jokes/swat/2.jpg",
         "image_2_alt": "swat",
-        "instagram": "https://www.instagram.com/p/CmsKKcUo5FT/"
+        "instagram": "https://www.instagram.com/p/CmsKKcUo5FT/",
+        "id": "CmsKKcUo5FT"
     },
     {
         "image_1": "jokes/grypa/1.jpg",
-        "image_1_alt": "Jaka choroba zmusza Cię do pożegnania się z PlayStation i Xboxem?",
+        "image_1_alt": "Jaka choroba zmusza Ci\u0119 do po\u017cegnania si\u0119 z PlayStation i Xboxem?",
         "image_2": "jokes/grypa/2.jpg",
         "image_2_alt": "grypa",
-        "instagram": "https://www.instagram.com/p/CmokUkOMxF0/"
+        "instagram": "https://www.instagram.com/p/CmokUkOMxF0/",
+        "id": "CmokUkOMxF0"
     },
     {
         "image_1": "jokes/windy/1.jpg",
-        "image_1_alt": "Windy - ty zmienisz piętro, a Anglikowi wiatr może porwać czapkę.",
+        "image_1_alt": "Windy - ty zmienisz pi\u0119tro, a Anglikowi wiatr mo\u017ce porwa\u0107 czapk\u0119.",
         "image_2": null,
         "image_2_alt": null,
-        "instagram": "https://www.instagram.com/p/CmdyF9essmU/"
+        "instagram": "https://www.instagram.com/p/CmdyF9essmU/",
+        "id": "CmdyF9essmU"
     },
     {
         "image_1": "jokes/karczek/1.jpg",
         "image_1_alt": "Jaka jest ulubiona potrawa mechanika samochodowego z Anglii?",
         "image_2": "jokes/karczek/2.jpg",
         "image_2_alt": "Karczek",
-        "instagram": "https://www.instagram.com/p/Cl4UhLGstKk/"
+        "instagram": "https://www.instagram.com/p/Cl4UhLGstKk/",
+        "id": "Cl4UhLGstKk"
     },
     {
         "image_1": "jokes/bajorko/1.jpg",
-        "image_1_alt": "Jak pożegnać orkę która wpłynęła do małego zarośniętego stawu?",
+        "image_1_alt": "Jak po\u017cegna\u0107 ork\u0119 kt\u00f3ra wp\u0142yn\u0119\u0142a do ma\u0142ego zaro\u015bni\u0119tego stawu?",
         "image_2": "jokes/bajorko/2.jpg",
         "image_2_alt": "Bajorko",
-        "instagram": "https://www.instagram.com/p/Cltq8SLMqNP/"
+        "instagram": "https://www.instagram.com/p/Cltq8SLMqNP/",
+        "id": "Cltq8SLMqNP"
     },
     {
         "image_1": "jokes/kajdanki/1.jpg",
-        "image_1_alt": "Jak zapyta śląski policjant o lokalizacje Danut?",
+        "image_1_alt": "Jak zapyta \u015bl\u0105ski policjant o lokalizacje Danut?",
         "image_2": "jokes/kajdanki/2.jpg",
         "image_2_alt": "Kajdanki",
-        "instagram": "https://www.instagram.com/p/Cld7784MirT/"
+        "instagram": "https://www.instagram.com/p/Cld7784MirT/",
+        "id": "Cld7784MirT"
     },
     {
         "image_1": "jokes/pantera/1.jpg",
-        "image_1_alt": "Jak zapyta śląski policjant o lokalizacje Danut?",
+        "image_1_alt": "Jak zapyta \u015bl\u0105ski policjant o lokalizacje Danut?",
         "image_2": "jokes/pantera/2.jpg",
         "image_2_alt": "pantera",
-        "instagram": "https://www.instagram.com/p/ClbR7LFMXEi/"
+        "instagram": "https://www.instagram.com/p/ClbR7LFMXEi/",
+        "id": "ClbR7LFMXEi"
     },
     {
         "image_1": "jokes/anno_domini/1.jpg",
-        "image_1_alt": "Co się mówi do Anny aby ta wskoczyła w krótką spódniczkę z okazji nowego roku pańskiego?",
+        "image_1_alt": "Co si\u0119 m\u00f3wi do Anny aby ta wskoczy\u0142a w kr\u00f3tk\u0105 sp\u00f3dniczk\u0119 z okazji nowego roku pa\u0144skiego?",
         "image_2": "jokes/anno_domini/2.jpg",
         "image_2_alt": "Anno Domini",
-        "instagram": "https://www.instagram.com/p/Cjljkezs2H6/"
+        "instagram": "https://www.instagram.com/p/Cjljkezs2H6/",
+        "id": "Cjljkezs2H6"
     },
     {
         "image_1": "jokes/brodzik/1.jpg",
-        "image_1_alt": "Jak ostrzec swojego ziomala przed wieprzem w płytkim basenie?",
+        "image_1_alt": "Jak ostrzec swojego ziomala przed wieprzem w p\u0142ytkim basenie?",
         "image_2": "jokes/brodzik/2.jpg",
         "image_2_alt": "brodzik!",
-        "instagram": "https://www.instagram.com/p/CjgNaSYsxzx/"
+        "instagram": "https://www.instagram.com/p/CjgNaSYsxzx/",
+        "id": "CjgNaSYsxzx"
     },
     {
         "image_1": "jokes/cysta/1.jpg",
-        "image_1_alt": "Ile bierze kosmetyczka za wyciśnięcie dużego pryszcza?",
+        "image_1_alt": "Ile bierze kosmetyczka za wyci\u015bni\u0119cie du\u017cego pryszcza?",
         "image_2": "jokes/cysta/2.jpg",
         "image_2_alt": "cysta",
-        "instagram": "https://www.instagram.com/p/CjNSTlDsvjS/"
+        "instagram": "https://www.instagram.com/p/CjNSTlDsvjS/",
+        "id": "CjNSTlDsvjS"
     },
     {
         "image_1": "jokes/o_tampony/1.jpg",
-        "image_1_alt": "Co mówi ojciec do synka w angielskim ZOO wskazując na kucyka?",
+        "image_1_alt": "Co m\u00f3wi ojciec do synka w angielskim ZOO wskazuj\u0105c na kucyka?",
         "image_2": "jokes/o_tampony/2.jpg",
         "image_2_alt": "O tampony",
-        "instagram": "https://www.instagram.com/p/Chex3v3MgI_/"
+        "instagram": "https://www.instagram.com/p/Chex3v3MgI_/",
+        "id": "Chex3v3MgI_"
     },
     {
         "image_1": "jokes/sinsay/1.jpg",
-        "image_1_alt": "Jak nazywa się sklep, w którym możesz wyspowiadać się po angielsku?",
+        "image_1_alt": "Jak nazywa si\u0119 sklep, w kt\u00f3rym mo\u017cesz wyspowiada\u0107 si\u0119 po angielsku?",
         "image_2": "jokes/sinsay/2.jpg",
         "image_2_alt": "Sinsay",
-        "instagram": "https://www.instagram.com/p/Cg9XZS_sh3C/"
+        "instagram": "https://www.instagram.com/p/Cg9XZS_sh3C/",
+        "id": "Cg9XZS_sh3C"
     },
     {
         "image_1": "jokes/odpowietrzy/1.jpg",
-        "image_1_alt": "Co zrobi hydraulik stojący przy grzejniku zapytany o kolejną cyfrę po dwójce?",
+        "image_1_alt": "Co zrobi hydraulik stoj\u0105cy przy grzejniku zapytany o kolejn\u0105 cyfr\u0119 po dw\u00f3jce?",
         "image_2": "jokes/odpowietrzy/2.jpg",
         "image_2_alt": "odpowietrzy",
-        "instagram": "https://www.instagram.com/p/CfuUaMDM7Eo/"
+        "instagram": "https://www.instagram.com/p/CfuUaMDM7Eo/",
+        "id": "CfuUaMDM7Eo"
     },
     {
         "image_1": "jokes/bo_pokale_do_piwa/1.jpg",
-        "image_1_alt": "Dlaczego klienci pubu po wizycie w toalecie od razu idą zamówić kolejne piwo?",
+        "image_1_alt": "Dlaczego klienci pubu po wizycie w toalecie od razu id\u0105 zam\u00f3wi\u0107 kolejne piwo?",
         "image_2": "jokes/bo_pokale_do_piwa/2.jpg",
         "image_2_alt": "Bo pokale do piwa",
-        "instagram": "https://www.instagram.com/p/CfpNEzss1ma/"
+        "instagram": "https://www.instagram.com/p/CfpNEzss1ma/",
+        "id": "CfpNEzss1ma"
     },
     {
         "image_1": "jokes/tapicerka/1.jpg",
-        "image_1_alt": "Co odpowie klient włoskiej knajpy na pytanie co mu najbardziej smakowało?",
+        "image_1_alt": "Co odpowie klient w\u0142oskiej knajpy na pytanie co mu najbardziej smakowa\u0142o?",
         "image_2": "jokes/tapicerka/2.jpg",
         "image_2_alt": "tapicerka",
-        "instagram": "https://www.instagram.com/p/Ce65yIHMoho/"
+        "instagram": "https://www.instagram.com/p/Ce65yIHMoho/",
+        "id": "Ce65yIHMoho"
     },
     {
         "image_1": "jokes/listopad/1.jpg",
-        "image_1_alt": "Co mówi niedźwiedź do gości, którzy przyszli pograć na playstation, a widzą tylko martwe zwierzę?",
+        "image_1_alt": "Co m\u00f3wi nied\u017awied\u017a do go\u015bci, kt\u00f3rzy przyszli pogra\u0107 na playstation, a widz\u0105 tylko martwe zwierz\u0119?",
         "image_2": "jokes/listopad/2.jpg",
         "image_2_alt": "listopad",
-        "instagram": "https://www.instagram.com/p/Ceo1EXoMp7Q/"
+        "instagram": "https://www.instagram.com/p/Ceo1EXoMp7Q/",
+        "id": "Ceo1EXoMp7Q"
     },
     {
         "image_1": "jokes/owieczka/1.jpg",
-        "image_1_alt": "Co powie pasterz, który dostrzegł kilka nakrętek od słoików?",
+        "image_1_alt": "Co powie pasterz, kt\u00f3ry dostrzeg\u0142 kilka nakr\u0119tek od s\u0142oik\u00f3w?",
         "image_2": "jokes/owieczka/2.jpg",
         "image_2_alt": "owieczka",
-        "instagram": "https://www.instagram.com/p/Ceb1Zkys7gB/"
+        "instagram": "https://www.instagram.com/p/Ceb1Zkys7gB/",
+        "id": "Ceb1Zkys7gB"
     },
     {
         "image_1": "jokes/patologia/1.jpg",
-        "image_1_alt": "Co mówi agent nieruchomości do typowego dresa wskazując na obudowany balkon?",
+        "image_1_alt": "Co m\u00f3wi agent nieruchomo\u015bci do typowego dresa wskazuj\u0105c na obudowany balkon?",
         "image_2": "jokes/patologia/2.jpg",
         "image_2_alt": "patologia",
-        "instagram": "https://www.instagram.com/p/CeRg4tuskcj/"
+        "instagram": "https://www.instagram.com/p/CeRg4tuskcj/",
+        "id": "CeRg4tuskcj"
     },
     {
         "image_1": "jokes/klopsiki/1.jpg",
-        "image_1_alt": "Jakie danie najbardziej kojarzy się z toaletą?",
+        "image_1_alt": "Jakie danie najbardziej kojarzy si\u0119 z toalet\u0105?",
         "image_2": "jokes/klopsiki/2.jpg",
         "image_2_alt": "klopsiki",
-        "instagram": "https://www.instagram.com/p/CeOwd-uMKFs/"
+        "instagram": "https://www.instagram.com/p/CeOwd-uMKFs/",
+        "id": "CeOwd-uMKFs"
     },
     {
         "image_1": "jokes/zarazenie_sie/1.jpg",
-        "image_1_alt": "Co odpowiada pan młody na pytanie co go najbardziej przeraża podczas pandemii?",
+        "image_1_alt": "Co odpowiada pan m\u0142ody na pytanie co go najbardziej przera\u017ca podczas pandemii?",
         "image_2": "jokes/zarazenie_sie/2.jpg",
-        "image_2_alt": "Zarażenie się",
-        "instagram": "https://www.instagram.com/p/CeJ1wi6sZ9C/"
+        "image_2_alt": "Zara\u017cenie si\u0119",
+        "instagram": "https://www.instagram.com/p/CeJ1wi6sZ9C/",
+        "id": "CeJ1wi6sZ9C"
     },
     {
         "image_1": "jokes/koleda/1.jpg",
-        "image_1_alt": "Co da gospodarz spragnionym dzieciom śpiewającym „dzisiaj w Betlejem”?",
+        "image_1_alt": "Co da gospodarz spragnionym dzieciom \u015bpiewaj\u0105cym \u201edzisiaj w Betlejem\u201d?",
         "image_2": "jokes/koleda/2.jpg",
-        "image_2_alt": "kolęda",
-        "instagram": "https://www.instagram.com/p/CeHShShsI8J/"
+        "image_2_alt": "kol\u0119da",
+        "instagram": "https://www.instagram.com/p/CeHShShsI8J/",
+        "id": "CeHShShsI8J"
     },
     {
         "image_1": "jokes/bo_chleb_graham/1.jpg",
-        "image_1_alt": "Dlaczego z piekarni słychać głośną muzykę w czasie ciszy nocnej?",
+        "image_1_alt": "Dlaczego z piekarni s\u0142ycha\u0107 g\u0142o\u015bn\u0105 muzyk\u0119 w czasie ciszy nocnej?",
         "image_2": "jokes/bo_chleb_graham/2.jpg",
         "image_2_alt": "Bo chleb graham",
-        "instagram": "https://www.instagram.com/p/Cd80HnqMTI4/"
+        "instagram": "https://www.instagram.com/p/Cd80HnqMTI4/",
+        "id": "Cd80HnqMTI4"
     },
     {
         "image_1": "jokes/tradziki/1.jpg",
-        "image_1_alt": "Co robią nastolatkowie w lesie gdy mają problemy z cerą?",
+        "image_1_alt": "Co robi\u0105 nastolatkowie w lesie gdy maj\u0105 problemy z cer\u0105?",
         "image_2": "jokes/tradziki/2.jpg",
-        "image_2_alt": "Trądziki",
-        "instagram": "https://www.instagram.com/p/Cd5yTdSMJCU/"
+        "image_2_alt": "Tr\u0105dziki",
+        "instagram": "https://www.instagram.com/p/Cd5yTdSMJCU/",
+        "id": "Cd5yTdSMJCU"
     },
     {
         "image_1": "jokes/dyson/1.jpg",
-        "image_1_alt": "Co mówi ojciec do syna gdy chce zamordować go odkurzaczem?",
+        "image_1_alt": "Co m\u00f3wi ojciec do syna gdy chce zamordowa\u0107 go odkurzaczem?",
         "image_2": "jokes/dyson/2.jpg",
         "image_2_alt": "Dyson!",
-        "instagram": "https://www.instagram.com/p/Cd3Dmp3sQgx/"
+        "instagram": "https://www.instagram.com/p/Cd3Dmp3sQgx/",
+        "id": "Cd3Dmp3sQgx"
     }
 ]

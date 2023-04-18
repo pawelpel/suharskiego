@@ -82,14 +82,18 @@ async function fetchDrawings() {
 function createDrawingContainer(drawing) {
     const container = document.createElement('div');
     container.classList.add('drawing-container');
+    container.setAttribute('id', drawing.id);
 
     container.innerHTML = `
         <div class="carousel">
             <div class="image-wrapper">
                 <img data-src="${drawing.image_1}" alt="${drawing.image_1_alt}" class="active lazy">
                 ${drawing.image_2 ? `<img data-src="${drawing.image_2}" alt="${drawing.image_2_alt}" class="lazy">` : ''}
-                <a href="${drawing.instagram}" target="_blank" class="instagram-link">
+                <a href="${drawing.instagram}" target="_blank" class="icon-link instagram-link">
                     <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="icon-link copy-link" data-id="${drawing.id}">
+                    <i class="fas fa-link"></i>
                 </a>
             </div>
             ${drawing.image_2 ? '<span class="arrow left hidden">&lsaquo;</span>' : ''}
@@ -102,6 +106,17 @@ function createDrawingContainer(drawing) {
             ` : ''}
         </div>
     `;
+
+    container.querySelector('.copy-link').addEventListener('click', (event) => {
+        event.preventDefault();
+        const url = new URL(window.location);
+        url.hash = drawing.id;
+        navigator.clipboard.writeText(url.toString()).then(() => {
+            // URL copied to clipboard successfully, no need for console.log
+        }).catch((error) => {
+            // Error occurred while copying URL, no need for console.error
+        });
+    });
 
     return container;
 }
@@ -161,3 +176,20 @@ async function init() {
 }
 
 init();
+
+async function scrollToDrawing() {
+  await init();
+
+  if (window.location.hash) {
+    const targetElement = document.querySelector(window.location.hash);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+
+scrollToDrawing();
+
+document.addEventListener('DOMContentLoaded', () => {
+  scrollToDrawing();
+});
