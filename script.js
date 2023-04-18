@@ -92,7 +92,7 @@ function createDrawingContainer(drawing) {
                 <a href="${drawing.instagram}" target="_blank" class="icon-link instagram-link">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="icon-link copy-link" data-id="${drawing.id}">
+                <a href="#${drawing.id}" class="icon-link copy-link" data-id="${drawing.id}">
                     <i class="fas fa-link"></i>
                 </a>
             </div>
@@ -111,11 +111,14 @@ function createDrawingContainer(drawing) {
         event.preventDefault();
         const url = new URL(window.location);
         url.hash = drawing.id;
-        navigator.clipboard.writeText(url.toString()).then(() => {
-            // URL copied to clipboard successfully, no need for console.log
-        }).catch((error) => {
-            // Error occurred while copying URL, no need for console.error
-        });
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url.toString()).catch((error) => {
+                console.error('Error copying URL:', error);
+            });
+        } else {
+            fallbackCopyTextToClipboard(url.toString());
+        }
     });
 
     return container;
@@ -193,3 +196,25 @@ scrollToDrawing();
 document.addEventListener('DOMContentLoaded', () => {
   scrollToDrawing();
 });
+
+function fallbackCopyTextToClipboard(text) {
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+
+  // Prevent the textarea from being visible on the page
+  textArea.style.position = 'fixed';
+  textArea.style.left = '-9999px';
+  textArea.style.top = '-9999px';
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    document.execCommand('copy');
+  } catch (err) {
+    console.error('Fallback: Error copying text:', err);
+  }
+
+  document.body.removeChild(textArea);
+}
