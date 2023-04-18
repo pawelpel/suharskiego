@@ -119,7 +119,7 @@ function createDrawingContainer(drawing) {
             messageElement.style.opacity = '1';
             setTimeout(() => {
                 messageElement.style.opacity = '0';
-            }, 10000); // Hide the message after 2 seconds
+            }, 1000); // Hide the message after 1 second
         };
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
