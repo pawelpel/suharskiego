@@ -95,6 +95,7 @@ function createDrawingContainer(drawing) {
                 <a href="#${drawing.id}" class="icon-link copy-link" data-id="${drawing.id}">
                     <i class="fas fa-link"></i>
                 </a>
+                <span class="copy-message"></span>
             </div>
             ${drawing.image_2 ? '<span class="arrow left hidden">&lsaquo;</span>' : ''}
             ${drawing.image_2 ? '<span class="arrow right">&rsaquo;</span>' : ''}
@@ -112,14 +113,25 @@ function createDrawingContainer(drawing) {
         const url = new URL(window.location);
         url.hash = drawing.id;
 
+        const showMessage = () => {
+            const messageElement = container.querySelector('.copy-message');
+            messageElement.textContent = 'Skopiowano ✓';
+            messageElement.style.opacity = '1';
+            setTimeout(() => {
+                messageElement.style.opacity = '0';
+            }, 10000); // Hide the message after 2 seconds
+        };
+
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(url.toString()).catch((error) => {
+            navigator.clipboard.writeText(url.toString()).then(showMessage).catch((error) => {
                 console.error('Error copying URL:', error);
             });
         } else {
             fallbackCopyTextToClipboard(url.toString());
+            showMessage();
         }
     });
+
 
     return container;
 }
@@ -181,40 +193,40 @@ async function init() {
 init();
 
 async function scrollToDrawing() {
-  await init();
+    await init();
 
-  if (window.location.hash) {
-    const targetElement = document.querySelector(window.location.hash);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            targetElement.scrollIntoView({behavior: 'smooth'});
+        }
     }
-  }
 }
 
 scrollToDrawing();
 
 document.addEventListener('DOMContentLoaded', () => {
-  scrollToDrawing();
+    scrollToDrawing();
 });
 
 function fallbackCopyTextToClipboard(text) {
-  const textArea = document.createElement('textarea');
-  textArea.value = text;
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
 
-  // Prevent the textarea from being visible on the page
-  textArea.style.position = 'fixed';
-  textArea.style.left = '-9999px';
-  textArea.style.top = '-9999px';
+    // Prevent the textarea from being visible on the page
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    textArea.style.top = '-9999px';
 
-  document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
 
-  try {
-    document.execCommand('copy');
-  } catch (err) {
-    console.error('Fallback: Error copying text:', err);
-  }
+    try {
+        document.execCommand('copy');
+    } catch (err) {
+        console.error('Fallback: Error copying text:', err);
+    }
 
-  document.body.removeChild(textArea);
+    document.body.removeChild(textArea);
 }
