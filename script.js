@@ -190,8 +190,6 @@ async function init() {
     changeBackgroundColor();
 }
 
-init();
-
 async function scrollToDrawing() {
     await init();
 
@@ -204,10 +202,6 @@ async function scrollToDrawing() {
 }
 
 scrollToDrawing();
-
-document.addEventListener('DOMContentLoaded', () => {
-    scrollToDrawing();
-});
 
 function fallbackCopyTextToClipboard(text) {
     const textArea = document.createElement('textarea');
