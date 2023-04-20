@@ -58,6 +58,8 @@ async function changeBackgroundColor() {
   g = Math.floor(g / visibleDrawings.length);
   b = Math.floor(b / visibleDrawings.length);
 
+  document.documentElement.style.transition = 'background-color 2s';
+  document.documentElement.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
   document.body.style.transition = 'background-color 2s';
   document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
