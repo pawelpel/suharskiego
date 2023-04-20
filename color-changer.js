@@ -7,7 +7,7 @@ function getDominantColor(img) {
         const color = colorThief.getColor(img);
         resolve(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
       } catch (error) {
-        resolve('rgb(0, 0, 0)'); // Default color in case of error
+        resolve('rgb(65,65,65)'); // Default color in case of error
       }
     };
 
@@ -16,7 +16,7 @@ function getDominantColor(img) {
     } else {
       img.onload = processImage;
       img.onerror = (error) => {
-        resolve('rgb(0, 0, 0)'); // Default color in case of error
+        resolve('rgb(65,65,65)'); // Default color in case of error
       };
     }
   });
