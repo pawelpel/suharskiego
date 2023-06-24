@@ -187,7 +187,6 @@ async function init() {
 
     initCarousels();
     initLazyLoading();
-    changeBackgroundColor();
 }
 
 async function scrollToDrawing() {
