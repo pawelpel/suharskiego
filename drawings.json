@@ -1,5 +1,13 @@
 [
-        {
+    {
+        "image_1": "jokes/synapsa/1.jpg",
+        "image_1_alt": "Czego najbardziej nienawidzi neurolog w swojej rodzinie?",
+        "image_2": "jokes/synapsa/2.jpg",
+        "image_2_alt": "synapsa",
+        "instagram": "https://www.instagram.com/p/Ct6d8gmsLFK/",
+        "id": "Ct6d8gmsLFK"
+    },
+    {
         "image_1": "jokes/podrobie/1.jpg",
         "image_1_alt": "Co odpowie fałszerz na pytanie jak rozwiąże problem zaginionych kurczaków?",
         "image_2": "jokes/podrobie/2.jpg",
