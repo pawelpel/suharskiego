@@ -70,13 +70,12 @@ function initCarousels() {
             dot.addEventListener('click', () => updateCarousel(index, carousel));
         });
     });
-};
+}
 
 
 async function fetchDrawings() {
     const response = await fetch('drawings.json');
-    const drawings = await response.json();
-    return drawings;
+    return await response.json();
 }
 
 function createDrawingContainer(drawing) {
