@@ -1,5 +1,13 @@
 [
     {
+        "image_1": "jokes/gazela/1.jpg",
+        "image_1_alt": "Jakie zwierzę na miejscu pasażera będzie wywierać presję na Elżbiecie aby ta jechała szybciej?",
+        "image_2": "jokes/gazela/2.jpg",
+        "image_2_alt": "Gazela",
+        "instagram": "https://www.instagram.com/p/CvUcDcZoiMb/",
+        "id": "CvUcDcZoiMb"
+    },
+    {
         "image_1": "jokes/busy/1.jpg",
         "image_1_alt": "Busy - dla Ciebie zwykłe środki transportu, a dla Anglika zawsze zajęte.",
         "image_2": null,
