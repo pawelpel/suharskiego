@@ -1,5 +1,21 @@
 [
     {
+        "image_1": "jokes/notre_dame/1.jpg",
+        "image_1_alt": "Co powie dzwonnik pracujący w paryskiej katedrze gdy zostanie przyłapany na pocieraniu kobiety?",
+        "image_2": "jokes/notre_dame/2.jpg",
+        "image_2_alt": "Notre Dame",
+        "instagram": "https://www.instagram.com/p/C5mBZ7SLDaq/",
+        "id": "C5mBZ7SLDaq"
+    },
+    {
+        "image_1": "jokes/powieki/1.jpg",
+        "image_1_alt": "Jak długo makijażystka będzie malować oczy?",
+        "image_2": "jokes/powieki/2.jpg",
+        "image_2_alt": "Powieki",
+        "instagram": "https://www.instagram.com/p/C2FuoU2IMPC/",
+        "id": "C2FuoU2IMPC"
+    },
+    {
         "image_1": "jokes/sikorka/1.jpg",
         "image_1_alt": "Jaki trop zdradził Legolasowi obecność uciekającej hordy orków?",
         "image_2": "jokes/sikorka/2.jpg",
