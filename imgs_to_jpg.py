@@ -14,7 +14,7 @@ def convert_image(filename):
 def convert_folder(path):
     for root, dirs, files in os.walk(path):
         for file in files:
-            if file.endswith(".PNG") or file.endswith(".png"):
+            if file.endswith(".PNG") or file.endswith(".png") or file.endswith(".jpeg"):
                 filename = os.path.join(root, file)
                 convert_image(filename)
 
