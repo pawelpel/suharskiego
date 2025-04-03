@@ -1,5 +1,13 @@
 [
     {
+        "image_1": "jokes/pastel_de_nata/1.jpg",
+        "image_1_alt": "Czego nie braknie rodzinie zmarłego artysty z Lizbony, który umarł z przejedzenia ciastek?",
+        "image_2": "jokes/pastel_de_nata/2.jpg",
+        "image_2_alt": "Pastel de nata",
+        "instagram": "https://www.instagram.com/p/DH9Cj94oGte/",
+        "id": "DH9Cj94oGte"
+    },
+    {
         "image_1": "jokes/w_bazie/1.jpg",
         "image_1_alt": "Gdzie się pochowali żołnierze na początku wiosny?",
         "image_2": "jokes/w_bazie/2.jpg",
