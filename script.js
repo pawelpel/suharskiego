@@ -75,6 +75,9 @@ function initCarousels() {
 
 async function fetchDrawings() {
     const response = await fetch('drawings.json');
+    if (!response.ok) {
+        throw new Error(`Failed to fetch drawings: ${response.status}`);
+    }
     return await response.json();
 }
 
@@ -137,8 +140,7 @@ function createDrawingContainer(drawing) {
 
 
 function initLazyLoading() {
-    const lazyImages = Array.from(document.querySelectorAll('.lazy'));
-    let preloadedImages = 0;
+    const lazyImages = new Set(document.querySelectorAll('.lazy'));
 
     const options = {
         rootMargin: '0px 0px 200px 0px',
@@ -146,8 +148,10 @@ function initLazyLoading() {
     };
 
     const loadImage = (image) => {
+        if (!lazyImages.has(image)) return;
         image.src = image.dataset.src;
         image.classList.remove('lazy');
+        lazyImages.delete(image);
     };
 
     const onIntersection = (entries, observer) => {
@@ -155,7 +159,6 @@ function initLazyLoading() {
             if (entry.isIntersecting) {
                 loadImage(entry.target);
                 observer.unobserve(entry.target);
-                lazyImages.splice(lazyImages.indexOf(entry.target), 1);
             }
         });
     };
@@ -165,19 +168,27 @@ function initLazyLoading() {
 
     // Preload images that are not in the viewport
     function preloadImages() {
-        if (lazyImages.length > 0) {
-            loadImage(lazyImages[preloadedImages]);
-            lazyImages.splice(preloadedImages, 1);
-            setTimeout(preloadImages, 1000); // load the next image after 1 second
+        if (lazyImages.size > 0) {
+            const next = lazyImages.values().next().value;
+            loadImage(next);
+            setTimeout(preloadImages, 1000);
         }
     }
 
-    setTimeout(preloadImages, 3000); // start preloading images after 3 seconds
+    setTimeout(preloadImages, 3000);
 }
 
 async function init() {
     const drawingsContainer = document.getElementById('drawings-container');
-    const drawings = await fetchDrawings();
+
+    let drawings;
+    try {
+        drawings = await fetchDrawings();
+    } catch (error) {
+        console.error(error);
+        drawingsContainer.textContent = 'Nie udało się załadować rysunków. Spróbuj odświeżyć stronę.';
+        return;
+    }
 
     for (const drawing of drawings) {
         const drawingContainer = createDrawingContainer(drawing);
