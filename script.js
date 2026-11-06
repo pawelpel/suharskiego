@@ -1,185 +1,173 @@
-function initCarousels() {
-    const carousels = document.querySelectorAll('.carousel');
+// Keep in sync with JOKE_WIDTHS in optimize_images.py.
+const VARIANT_WIDTHS = [720, 1080, 1440];
+const IMAGE_SIZES = '(min-width: 768px) calc(50vw - 40px), calc(100vw - 40px)';
+const SWIPE_THRESHOLD_PX = 50;
+const COPY_MESSAGE_MS = 1000;
 
-    function handleGesture(startX, endX, carousel) {
-        if (startX - endX > 50) {
-            nextImage(carousel);
-        } else if (startX - endX < -50) {
-            previousImage(carousel);
-        }
+function setImageSource(img, src) {
+    // A missing variant means optimize_images.py has not been run for this drawing yet.
+    img.addEventListener('error', () => {
+        img.removeAttribute('srcset');
+        img.src = src;
+    }, { once: true });
+
+    img.sizes = IMAGE_SIZES;
+    img.srcset = VARIANT_WIDTHS
+        .map((width) => `${src.replace(/\.jpg$/, `-${width}.webp`)} ${width}w`)
+        .join(', ');
+    img.src = src;
+}
+
+function initCarousel(carousel, loadHiddenSlide) {
+    const slides = [...carousel.querySelectorAll('.slide')];
+    const dots = [...carousel.querySelectorAll('.dot')];
+    const leftArrow = carousel.querySelector('.arrow.left');
+    const rightArrow = carousel.querySelector('.arrow.right');
+    let current = 0;
+
+    function show(index) {
+        if (index < 0 || index >= slides.length) return;
+
+        loadHiddenSlide();
+        current = index;
+
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+            if (i === index) {
+                dot.setAttribute('aria-current', 'true');
+            } else {
+                dot.removeAttribute('aria-current');
+            }
+        });
+
+        const atStart = index === 0;
+        const atEnd = index === slides.length - 1;
+        // Hiding the focused arrow would otherwise drop keyboard focus back to the page.
+        const nextFocus = (atStart && document.activeElement === leftArrow && rightArrow)
+            || (atEnd && document.activeElement === rightArrow && leftArrow);
+
+        leftArrow.hidden = atStart;
+        rightArrow.hidden = atEnd;
+        if (nextFocus) nextFocus.focus();
     }
 
-    function updateCarousel(newIndex, carousel) {
-        const images = carousel.querySelectorAll('img');
-        const dots = carousel.querySelector('.dots').querySelectorAll('.dot');
-        const leftArrow = carousel.querySelector('.arrow.left');
-        const rightArrow = carousel.querySelector('.arrow.right');
+    leftArrow.addEventListener('click', () => show(current - 1));
+    rightArrow.addEventListener('click', () => show(current + 1));
+    dots.forEach((dot, index) => dot.addEventListener('click', () => show(index)));
 
-        images[newIndex].classList.add('active');
-        images[newIndex === 0 ? 1 : 0].classList.remove('active');
-        dots[newIndex].classList.add('active');
-        dots[newIndex === 0 ? 1 : 0].classList.remove('active');
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (event) => {
+        touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', (event) => {
+        const distance = touchStartX - event.changedTouches[0].screenX;
+        if (Math.abs(distance) > SWIPE_THRESHOLD_PX) show(current + Math.sign(distance));
+    }, { passive: true });
 
-        if (newIndex === 0) {
-            leftArrow.classList.add('hidden');
-            rightArrow.classList.remove('hidden');
-        } else {
-            leftArrow.classList.remove('hidden');
-            rightArrow.classList.add('hidden');
-        }
+    // Fetch the hidden slide on first sign of interest, so it is ready when revealed.
+    carousel.addEventListener('pointerenter', loadHiddenSlide, { once: true });
+    carousel.addEventListener('focusin', loadHiddenSlide, { once: true });
+}
+
+function legacyCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    document.body.append(textArea);
+    textArea.select();
+    const copied = document.execCommand('copy');
+    textArea.remove();
+    if (!copied) throw new Error('execCommand copy was rejected');
+}
+
+async function copyToClipboard(text) {
+    // navigator.clipboard only exists in secure contexts, so plain HTTP needs the fallback.
+    if (navigator.clipboard) {
+        await navigator.clipboard.writeText(text);
+    } else {
+        legacyCopy(text);
     }
+}
 
-    function nextImage(carousel) {
-        updateCarousel(1, carousel);
-    }
+function initCopyLink(container, id) {
+    const message = container.querySelector('.copy-message');
 
-    function previousImage(carousel) {
-        updateCarousel(0, carousel);
-    }
+    container.querySelector('.copy-link').addEventListener('click', async (event) => {
+        event.preventDefault();
+        const url = new URL(window.location);
+        url.hash = id;
 
-    carousels.forEach(carousel => {
-        if (carousel.querySelectorAll('img').length < 2) {
+        try {
+            await copyToClipboard(url.toString());
+        } catch (error) {
+            console.error('Error copying URL:', error);
             return;
         }
 
-        const leftArrow = carousel.querySelector('.arrow.left');
-        const rightArrow = carousel.querySelector('.arrow.right');
-
-        carousel.querySelector('.arrow.left').classList.add('hidden');
-        if (carousel.querySelectorAll('img').length <= 1) {
-            carousel.querySelector('.arrow.right').classList.add('hidden');
-        }
-
-        leftArrow.addEventListener('click', () => previousImage(carousel));
-        rightArrow.addEventListener('click', () => nextImage(carousel));
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        carousel.addEventListener('touchstart', event => {
-            touchStartX = event.changedTouches[0].screenX;
-        });
-
-        carousel.addEventListener('touchend', event => {
-            touchEndX = event.changedTouches[0].screenX;
-            handleGesture(touchStartX, touchEndX, carousel);
-        });
-
-        const dots = carousel.querySelector('.dots').querySelectorAll('.dot'); // Update this line
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => updateCarousel(index, carousel));
-        });
+        message.textContent = 'Skopiowano ✓';
+        message.classList.add('visible');
+        setTimeout(() => message.classList.remove('visible'), COPY_MESSAGE_MS);
     });
 }
 
+function createDrawing(template, drawing, isFirst) {
+    const fragment = document.importNode(template.content, true);
+    const container = fragment.querySelector('.drawing-container');
+    const carousel = container.querySelector('.carousel');
+    const [firstSlide, secondSlide] = container.querySelectorAll('.slide');
+
+    container.id = drawing.id;
+
+    container.querySelector('.instagram-link').href = drawing.instagram;
+    container.querySelector('.copy-link').href = `#${drawing.id}`;
+    initCopyLink(container, drawing.id);
+
+    // The first drawing holds the LCP image; everything else waits until it is near the viewport.
+    firstSlide.loading = isFirst ? 'eager' : 'lazy';
+    if (isFirst) firstSlide.setAttribute('fetchpriority', 'high');
+    firstSlide.alt = drawing.image_1_alt;
+    setImageSource(firstSlide, drawing.image_1);
+
+    if (drawing.image_2) {
+        secondSlide.alt = drawing.image_2_alt;
+        let isLoaded = false;
+        initCarousel(carousel, () => {
+            if (isLoaded) return;
+            isLoaded = true;
+            setImageSource(secondSlide, drawing.image_2);
+        });
+    } else {
+        secondSlide.remove();
+        carousel.querySelectorAll('.arrow, .dots').forEach((element) => element.remove());
+    }
+
+    return container;
+}
+
+function syncBackgroundOnFirstScroll() {
+    window.addEventListener('scroll', async () => {
+        try {
+            const { syncBackgroundWithDrawings } = await import('./color-changer.js');
+            syncBackgroundWithDrawings(document.querySelectorAll('.drawing-container'));
+        } catch (error) {
+            console.error('Error starting background sync:', error);
+        }
+    }, { once: true, passive: true });
+}
 
 async function fetchDrawings() {
     const response = await fetch('drawings.json');
     if (!response.ok) {
         throw new Error(`Failed to fetch drawings: ${response.status}`);
     }
-    return await response.json();
-}
-
-function createDrawingContainer(drawing) {
-    const container = document.createElement('div');
-    container.classList.add('drawing-container');
-    container.setAttribute('id', drawing.id);
-
-    container.innerHTML = `
-        <div class="carousel">
-            <div class="image-wrapper">
-                <img data-src="${drawing.image_1}" alt="${drawing.image_1_alt}" class="active lazy">
-                ${drawing.image_2 ? `<img data-src="${drawing.image_2}" alt="${drawing.image_2_alt}" class="lazy">` : ''}
-                <a href="${drawing.instagram}" target="_blank" class="icon-link instagram-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#${drawing.id}" class="icon-link copy-link" data-id="${drawing.id}">
-                    <i class="fas fa-link"></i>
-                </a>
-                <span class="copy-message"></span>
-            </div>
-            ${drawing.image_2 ? '<span class="arrow left hidden">&lsaquo;</span>' : ''}
-            ${drawing.image_2 ? '<span class="arrow right">&rsaquo;</span>' : ''}
-            ${drawing.image_2 ? `
-            <div class="dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-            </div>
-            ` : ''}
-        </div>
-    `;
-
-    container.querySelector('.copy-link').addEventListener('click', (event) => {
-        event.preventDefault();
-        const url = new URL(window.location);
-        url.hash = drawing.id;
-
-        const showMessage = () => {
-            const messageElement = container.querySelector('.copy-message');
-            messageElement.textContent = 'Skopiowano ✓';
-            messageElement.style.opacity = '1';
-            setTimeout(() => {
-                messageElement.style.opacity = '0';
-            }, 1000); // Hide the message after 1 second
-        };
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(url.toString()).then(showMessage).catch((error) => {
-                console.error('Error copying URL:', error);
-            });
-        } else {
-            fallbackCopyTextToClipboard(url.toString());
-            showMessage();
-        }
-    });
-
-
-    return container;
-}
-
-
-function initLazyLoading() {
-    const lazyImages = new Set(document.querySelectorAll('.lazy'));
-
-    const options = {
-        rootMargin: '0px 0px 200px 0px',
-        threshold: 0
-    };
-
-    const loadImage = (image) => {
-        if (!lazyImages.has(image)) return;
-        image.src = image.dataset.src;
-        image.classList.remove('lazy');
-        lazyImages.delete(image);
-    };
-
-    const onIntersection = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                loadImage(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(onIntersection, options);
-    lazyImages.forEach(image => observer.observe(image));
-
-    // Preload images that are not in the viewport
-    function preloadImages() {
-        if (lazyImages.size > 0) {
-            const next = lazyImages.values().next().value;
-            loadImage(next);
-            setTimeout(preloadImages, 1000);
-        }
-    }
-
-    setTimeout(preloadImages, 3000);
+    return response.json();
 }
 
 async function init() {
     const drawingsContainer = document.getElementById('drawings-container');
+    const template = document.getElementById('drawing-template');
 
     let drawings;
     try {
@@ -190,46 +178,12 @@ async function init() {
         return;
     }
 
-    for (const drawing of drawings) {
-        const drawingContainer = createDrawingContainer(drawing);
-        drawingsContainer.appendChild(drawingContainer);
-    }
+    drawingsContainer.append(...drawings.map((drawing, index) => createDrawing(template, drawing, index === 0)));
 
-    initCarousels();
-    initLazyLoading();
+    syncBackgroundOnFirstScroll();
+
+    // Jump instead of smooth-scrolling: passing every drawing on the way would load them all.
+    document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
 }
 
-async function scrollToDrawing() {
-    await init();
-
-    if (window.location.hash) {
-        const targetElement = document.querySelector(window.location.hash);
-        if (targetElement) {
-            targetElement.scrollIntoView({behavior: 'smooth'});
-        }
-    }
-}
-
-scrollToDrawing();
-
-function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-
-    // Prevent the textarea from being visible on the page
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-9999px';
-    textArea.style.top = '-9999px';
-
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    try {
-        document.execCommand('copy');
-    } catch (err) {
-        console.error('Fallback: Error copying text:', err);
-    }
-
-    document.body.removeChild(textArea);
-}
+init();

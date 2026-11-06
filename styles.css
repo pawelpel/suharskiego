@@ -4,18 +4,16 @@
     padding: 0;
 }
 
-html, body {
+html {
     font-family: Arial, sans-serif;
     background-color: rgb(110, 110, 110);
+    transition: background-color 2s;
 }
 
 #header {
-    top: 0;
-    left: 0;
     width: 100%;
     padding: 10px;
     text-align: center;
-    z-index: 1000;
 }
 
 .logo-container {
@@ -23,13 +21,14 @@ html, body {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    font-size: 1rem;
     padding: 1em;
     width: calc(100% - 2em);
-    box-sizing: border-box;
 }
 
 .logo {
     width: calc(150 / (150 + 1385) * 100%);
+    height: auto;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -54,14 +53,14 @@ html, body {
 .carousel {
     position: relative;
     width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
+    aspect-ratio: 1;
     overflow: hidden;
     margin-bottom: 20px;
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
-.carousel img {
+.slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -73,114 +72,137 @@ html, body {
     z-index: 1;
 }
 
-.carousel img.active {
+.slide.active {
     opacity: 1;
 }
 
 .icon-link {
-  position: absolute;
-  top: 10px;
-  font-size: 24px;
-  color: white;
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  transition: background-color 0.3s;
-  opacity: 0.5;
-  z-index: 10;
+    position: absolute;
+    top: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s;
+    opacity: 0.5;
+    z-index: 10;
 }
 
-.icon-link:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 1;
+.icon-link:hover,
+.icon-link:focus-visible {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
 }
 
-/* Specific styles for Instagram link */
 .instagram-link {
-  right: 10px;
+    right: 10px;
 }
 
-/* Specific styles for copy link */
 .copy-link {
-  right: 60px;
-  font-size: 18px;
+    right: 60px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.copy-link .icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.75;
 }
 
 .copy-message {
-  position: absolute;
-  top: 17px;
-  right: 110px;
-  font-size: 14px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-  padding: 5px 10px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 10;
+    position: absolute;
+    top: 17px;
+    right: 110px;
+    font-size: 14px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    padding: 5px 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.copy-message.visible {
+    opacity: 1;
 }
 
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    display: none;
+    width: 40px;
+    height: 64px;
+    font-family: inherit;
     font-size: 2rem;
-    color: #ffffff;
+    font-weight: bold;
+    color: white;
     background-color: transparent;
-    padding: 0;
+    border: 0;
     cursor: pointer;
     user-select: none;
     z-index: 10;
-    display: none;
 }
 
 .arrow.left {
-    left: 10px;
-    font-weight: bold;
+    left: 0;
 }
 
 .arrow.right {
-    right: 10px;
-    font-weight: bold;
-}
-
-.arrow.hidden {
-    display: none !important;
+    right: 0;
 }
 
 .dots {
     position: absolute;
-    bottom: 10px;
+    bottom: 2px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
     z-index: 10;
 }
 
+/* A 24px tap target around the 8px dot that is actually drawn. */
 .dot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.dot::before {
+    content: '';
     width: 8px;
     height: 8px;
     background-color: #333333;
     border-radius: 50%;
-    margin: 0 2px;
-    cursor: pointer;
 }
 
-.dot.active {
+.dot.active::before {
     background-color: #cccccc;
 }
 
 @media screen and (min-width: 768px) {
-    .arrow {
-        display: inline;
+    .arrow:not([hidden]) {
+        display: block;
     }
 
     .drawing-container {
